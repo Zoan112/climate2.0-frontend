@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <title>Climate API</title>
+</head>
+<body>
+    <!-- Header-->
+    <h1>Climate API</h1>
+
+    <!--choose location div-->
+    <div class=content>
+        <div class="bgCard">   
+            <label class="locationLabel" for="location"><h3>Sensor location:</h3></label>
+            <select name="location" id="location">
+            <option value="volvo">Outside</option>
+            <option value="saab">Living room</option>
+            </select>
+        </div>
+
+
+        <!--DIV for sensor data and chart-->
+        <div class="bgCard">
+            <span class= currentData>
+                <p>26C</p>
+                <p>40%</p>
+            </span>
+
+            <!--Chart-->
+
+            <div class=chart>
+                Chart
+            </div>
+            <!--Last reading-->
+            <p>Last reading: 6.10.2021, 7:45:14</p>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class="bgCard footer">
+        <span>
+            <p>For climate api docs visit</p>
+            <a href="temperature.zohar-hadari.com">temperature.zohar-hadari.com</a>
+        </span>
+    </div>
+</body>
+</html>
