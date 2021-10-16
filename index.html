@@ -23,9 +23,9 @@
             </label>
             <img src="./location-sharp.svg" alt="location" style="width: 30px; height: auto; position: relative;
             top: 0.3em;">
-            <select name="location" id="location">
-            <option value="volvo">Outside</option>
-            <option value="saab">Living room</option>
+            <select name="location" id="location" onchange="locationSelection(value)">
+            <option value="os">Outside</option>
+            <option value="lr">Living room</option>
             </select>
         </div>
 
@@ -33,8 +33,8 @@
         <!--DIV for sensor data and chart-->
         <div class="bgCard">
             <span class= currentData>
-                <p>26°C</p>
-                <p>40%</p>
+                <p class="temp"><p>°C</p></p>
+                <p class="humidity"><p>%</p></p>
             </span>
 
             <!--Chart-->
@@ -43,7 +43,7 @@
                 Chart
             </div>
             <!--Last reading-->
-            <p>Last reading: 6.10.2021, 7:45:14</p>
+            <p class="lastReadingData">Last reading: 6.10.2021, 7:45:14</p>
         </div>
     </div>
 
@@ -54,5 +54,7 @@
             <a class="docLink" href="https://temperature.zohar-hadari.com">temperature.zohar-hadari.com</a>
         </span>
     </div>
+    <!--JS-->
+    <script src="app.js"></script>
 </body>
 </html>
