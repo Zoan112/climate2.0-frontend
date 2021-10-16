@@ -2,12 +2,17 @@
 *{
     margin: 0px;
     padding: 0px;
+    font-family: 'Poppins', sans-serif;
 }
 
+html{
+    height: 100vh;
+}
 
 body{
     background-color: #081B24;
-    height: 90vh;
+    height: 100%;
+    min-height: 100%;
     text-align: center;
     color: white;
 }
@@ -16,13 +21,13 @@ body{
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.33), rgba(255, 255, 255, 0.33)), #081B24;
     border-radius: 33px;
     width: 80%;
-    margin: 0px auto;
+    margin: 0.3em auto;
     padding: 1em;
 }
 /*Header/Title*/
 h1{
     font-size: 25px;
-    margin-top: 2em;
+    margin: 0.5em auto;
 }
 
 
@@ -38,9 +43,14 @@ h1{
 .locationLabel{
 font-size: 25px;
 } 
+.locationLabel>h3{
+    font-size: 25px;
+    font-weight: 400;
+    } 
 
 #location{
-    font-size: 35px;
+    padding: 10px;
+    font-size: 25px;
     border-radius: 20px
 }
 
@@ -58,13 +68,20 @@ font-size: 25px;
 
 /* Card #3*/
 .footer{
-    transform: translate(5%, 0);
     font-size: 20px;
     border-radius: 30px 30px 0px 0px;
     position:relative;
-    left: 0;
-    bottom: 0;
-    /*width: 100%;*/
+    bottom: -0.2em;
     color: white;
     text-align: center;
+    margin: 0px auto;
+    left: 0;
+    right: 0;
+    margin-top:0.3em
+}
+
+.docLink{
+    color: black;
+    text-decoration: none;
+    font-size: 17px;
 }
