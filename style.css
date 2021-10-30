@@ -66,6 +66,10 @@ font-size: 25px;
     height: 250px;
 }
 
+.oneLine{
+    display: inline-flex;
+}
+
 /* Card #3*/
 .footer{
     font-size: 20px;
