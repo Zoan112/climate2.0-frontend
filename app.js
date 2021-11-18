@@ -44,7 +44,7 @@ console.log(temp.textContent)
 
         }
       /*Defult location reading*/
-        locationSelection('lr');
+        locationSelection('os');
         
 /*Update DOM*/
     update =((result)=>{
