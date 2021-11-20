@@ -41,12 +41,9 @@
             </span>
 
             <!--Chart-->
-
-            <div class=chart>
-                <a>Chart</a>
-                <img src="./assets/construction-icon.png" alt="Under work icon" style="width: 100px; height: 100px;">
-                <a>Work in progress...</a>
-            </div>
+                <div class="chart">
+                    <canvas id="myChart"></canvas>
+                </div>            
             <!--Last reading-->
             <p class="lastReadingData">Last reading: 6.10.2021, 7:45:14</p>
         </div>
@@ -59,7 +56,12 @@
             <a class="docLink" href="https://temperature.zohar-hadari.com">temperature.zohar-hadari.com</a>
         </span>
     </div>
+    
     <!--JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" 
+    integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="app.js"></script>
 </body>
 </html>

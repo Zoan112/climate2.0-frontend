@@ -70,19 +70,20 @@ font-size: 25px;
     font-size: 35px;
 }
 
-.chart{
-    height: 250px;
-    /*Work in progress*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-style: italic;
-}
+
+
 
 .oneLine{
     display: inline-flex;
 }
+
+/*Chart*/
+
+
+.chart{
+    
+}
+
 
 /* Card #3*/
 .footer{
