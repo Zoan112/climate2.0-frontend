@@ -128,10 +128,15 @@ const config = {
     options: {
  
       plugins: {
+
         legend: {
+
             labels: {
                 color: 'white',
-                fontColor: 'white'
+                fontColor: 'white',
+                datalabels: {
+                  color: 'red'
+                },
             }
         }
       },
@@ -152,12 +157,19 @@ const config = {
           },*/
         scales: {
             Y: {
-                /*ticks: {
-                  callback: function(value){
+                ticks: {
+                  color: 'white',
+                  /*callback: function(value){
                       return '$'+ value + "M";
-                  }
+                  }*/
                 },
-                beginAtZero: false,*/
+                beginAtZero: false,
+            },
+            X: {
+              ticks: {
+              color: 'white',
+              display: false
+              }
             }
         }
     },
