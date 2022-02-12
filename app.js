@@ -1,8 +1,10 @@
-console.log("js started");
-
 const temp = document.getElementsByClassName("temp")[0];
 const humidity = document.getElementsByClassName("humidity")[0];
 const lastReadingData = document.getElementsByClassName("lastReadingData")[0];
+//Chart
+const ctx = document.getElementById('myChart').getContext('2d');
+
+var counter = 0 
 
 console.log(temp.textContent)
 /* Fetch from API server*/
@@ -11,21 +13,66 @@ console.log(temp.textContent)
 /*Get location selection from DOM*/
         const locationSelection = ((value)=>{
             console.log(value);
-            fetchSelectedLocation(value)
+            fetchSelectedLocation(value);
         })
  
         
         /*Translation layer*/
+        //Fetch data
         const fetchSelectedLocation = (value)=>{
+          //Clear previus chart data
+          if (counter != 0){
+            data.datasets[0].data = []
+            data.datasets[1].data = []
+            labels = []
+            myChart.destroy()
+           }
             let locations = { lr: "https://climate-api.zohar-hadari.com:3000/zones/livingrooms%20-l", os: "https://climate-api.zohar-hadari.com:3000/zones/outsides%20-l"}
+            let chartLocations = { lr: "https://climate-api.zohar-hadari.com:3000/zones/livingrooms", os: "https://climate-api.zohar-hadari.com:3000/zones/outsides"}
             console.log('fetch', value);
             console.log(value);
             console.log(locations.value);
             console.log('[]',locations[value]);
-
+            const chartLocationCall = chartLocations[value]
             const apiCall = locations[value];
+
+          
             fetchFuntion(apiCall);
+            fetchChart(chartLocationCall);
         }
+
+          //Select chart fetch location
+
+
+const fetchChart = (chartLocationCall)=>{
+
+
+  //clear canvas
+
+  //fetch chart
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+  fetch(chartLocationCall, requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result) + writeChartData(result))
+  .catch(error => console.log('error', error));
+
+  const writeChartData = (result) => {
+       console.log(result);
+       show = JSON.parse(result);
+       for( i in show) {
+          labels.push(show[i].time);
+          data.datasets[0].data.push(show[i].C);
+          data.datasets[1].data.push(show[i].H);
+        }
+        console.log("stop popuating");
+        draw();
+  };
+};
+ 
        
         /*fetch results*/
 
@@ -59,35 +106,8 @@ console.log(temp.textContent)
 
 
 
-  //Chart
-  const ctx = document.getElementById('myChart').getContext('2d');
 
-
-//fetch results
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  
-  fetch("https://climate-api.zohar-hadari.com:3000/zones/livingrooms", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result) + writeChartData(result))
-    .catch(error => console.log('error', error));
-
-    const writeChartData = (result) => {
-         console.log(result);
-         show = JSON.parse(result);
-         for( i in show) {
-            labels.push(show[i].time);
-            data.datasets[0].data.push(show[i].C);
-            data.datasets[1].data.push(show[i].H);
-          }
-          console.log("stop popuating");
-          draw();
-    };
-
-
-
+//Chart
 
 let delayed;
 
@@ -97,9 +117,9 @@ let gradient = ctx.createLinearGradient(0, 0, 0, 400);
 gradient.addColorStop(0, 'rgb(58,124,213, 1)')
 gradient.addColorStop(1, 'rgb(0,210,255, 0.3)')
 
-const labels = [
+var labels = [];
     
-];
+
 
 const data = {
     labels,
@@ -164,17 +184,23 @@ const config = {
                   }*/
                 },
                 beginAtZero: false,
+
             },
             X: {
               ticks: {
               color: 'white',
-              display: false
+              display: false,
               }
             }
         }
     },
 };
 
+
 const draw = ()=>{
-    const myChat = new Chart(ctx, config);  
+  counter =+ 1
+  //console.log(ctx);
+  myChart = new Chart(ctx, config);  
 };
+
+
