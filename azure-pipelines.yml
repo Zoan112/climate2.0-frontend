@@ -26,3 +26,4 @@ steps:
     threads: '1'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
+    
